@@ -1,0 +1,53 @@
+df = read.csv("~/Documentos/PERÍODOS/SEGUNDO PERIODO /MATÉRIAS/APRENDIZADO DE MÁQUINA/TRABALHO/Life Expectancy Data.xls")
+df
+unique(df$Country)
+mean(df$Life.expectancy, NA.rm = TRUE)
+brazil = subset(df, Country == "Brazil",)
+brazil
+
+mean(brazil$Life.expectancy)
+
+
+mean(df$Life.expectancy[df$Country == "Brazil"])
+
+df[df$Life.expectancyexclude.NA]
+dfL = df[df$Life.expectancy, exclude.NA]
+
+mean(df$Life.expectancy, na.rm = T)
+
+mean(df$Country == "Haiti"[df$Life.expectancy])
+haiti = df[df$Country == "Haiti",]
+haiti
+mean(haiti$Life.expectancy)
+boxplot(haiti$Life.expectancy)
+
+india = df[df$Country  == "India",]
+india
+
+reino_unido = df[df$Country == 'United Kingdom of Great Britain and Northern Ireland',]
+reino_unido
+
+
+paises_na = df %>%
+  group_by(Country) %>%
+  filter(all(is.na(Schooling))) %>%
+  pull(Country)
+
+unique(paises_na)
+
+
+
+
+plot(df$Schooling, df$Life.expectancy, 
+     main = "EXPECTATIVA X ESCOLARIDADE",
+     xlab = "Escolaridade",
+     ylab = "Expectativa de vida")
+
+modelo = lm(Life.expectancy ~ Schooling, data = df)
+modelo
+abline(modelo, col = "red")
+
+modelo
+
+cor(df$Life.expectancy, df$Measles, method = "pearson", use = "complete.obs")
+?
